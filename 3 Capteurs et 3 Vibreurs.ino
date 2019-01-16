@@ -146,10 +146,10 @@ void EmissionUltrasons(int trig, int echo, int motor, float duration, float dist
     Serial.println(" microsecondes.");
     
     //On test la distance pour voir si l'on doit faire vibrer le capteur.
-    if(distance <= 100)
+    if(distance <= 200)
     {
       //On fait vibrer le vibreur.
-      analogWrite(motor, 255);
+      analogWrite(motor, 100);
     }
     else
     {
