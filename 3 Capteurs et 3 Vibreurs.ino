@@ -5,23 +5,23 @@
 //#define sert à définir une variable constante avant que le programme soit compilé.
 
 //Capteur de Gauche
-#define trigPinLeft 2
-#define echoPinLeft 3
+#define trigPinLeft 3
+#define echoPinLeft 2
 //Capteur de Droite
-#define trigPinRight 4
-#define echoPinRight 5
+#define trigPinRight 5
+#define echoPinRight 4
 //Capteur Frontal
-#define trigPinFront 6
-#define echoPinFront 7
+#define trigPinFront 7
+#define echoPinFront 6
 
 //Définir Les Pins pour les vibreurs.
 
 //Vibreur de Gauche
 #define motorPinLeft 10
 //Vibreur de Droite
-#define motorPinRight 9
+#define motorPinRight 11
 //Vibreur Frontal
-#define motorPinFront 8
+#define motorPinFront 9
 
 //Définir les durées et les distances pour chaque capteur.
 //La "durée" correspond au temps que met un ultrason pour revenir sur l'émetteur à ultrasons de la ceinture.
@@ -84,13 +84,19 @@ void loop() {
   //Choisir la variable float, qui va permettre de stocker la durée que mettent les ultrasons à revenir.
   //Choisir la variable float, qui va permettre de stocker la distance qu'on parcouru les ultrasons avant de toucher un obstacle.
   //Choisir la lettre à afficher lorsque le résultat apparé pour être sûr de savoir de quel capteur on parle pour une personne extérieur.
+
+delay(500);
   
   //Configuration pour le capteur frontal et le vibreur frontal.
   EmissionUltrasons(trigPinFront, echoPinFront, motorPinFront, durationFront, distanceFront, Front); 
+
+delay(500); 
   
   //Configuration pour le capteur de gauche et le vibreur de gauche.
   EmissionUltrasons(trigPinLeft, echoPinLeft, motorPinLeft, durationLeft, distanceLeft, Left);
-  
+
+delay(500);
+
   //Configuration pour le capteur de droite et le vibreur de droite.
   EmissionUltrasons(trigPinRight, echoPinRight, motorPinRight, durationRight, distanceRight, Right);
   
@@ -131,6 +137,7 @@ void EmissionUltrasons(int trig, int echo, int motor, float duration, float dist
   if (distance >= 400 || distance <= 2) {
     //On écrit cette phrase dans la console quand l'objet est hors de portée.
     Serial.println("Hors de portee.");
+    analogWrite(motor, 0);
   }
   else {
     //On écrit dans la console pour afficher la distance du capteur à l'objet.
