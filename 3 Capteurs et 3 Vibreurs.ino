@@ -85,17 +85,17 @@ void loop() {
   //Choisir la variable float, qui va permettre de stocker la distance qu'on parcouru les ultrasons avant de toucher un obstacle.
   //Choisir la lettre à afficher lorsque le résultat apparé pour être sûr de savoir de quel capteur on parle pour une personne extérieur.
 
-delay(500);
+  delay(500);
   
   //Configuration pour le capteur frontal et le vibreur frontal.
   EmissionUltrasons(trigPinFront, echoPinFront, motorPinFront, durationFront, distanceFront, Front); 
 
-delay(500); 
+  delay(500); 
   
   //Configuration pour le capteur de gauche et le vibreur de gauche.
   EmissionUltrasons(trigPinLeft, echoPinLeft, motorPinLeft, durationLeft, distanceLeft, Left);
 
-delay(500);
+  delay(500);
 
   //Configuration pour le capteur de droite et le vibreur de droite.
   EmissionUltrasons(trigPinRight, echoPinRight, motorPinRight, durationRight, distanceRight, Right);
@@ -157,6 +157,8 @@ void EmissionUltrasons(int trig, int echo, int motor, float duration, float dist
     {
       //On fait vibrer le vibreur.
       analogWrite(motor, 100);
+      Serial.print(name);
+      Serial.println("_Vibre");
     }
     else
     {
