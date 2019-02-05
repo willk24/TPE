@@ -42,7 +42,7 @@ char Left = 'L';
 //Capteur de Droite
 char Right = 'R';
 
-//void est un mot clé utilisé pour déclarer une function.
+//void est un mot clé utilisé pour déclarer une fonction.
 //void setup est une fonction qui est appelée au démarrage de la carte arduino.
 
 void setup() {
